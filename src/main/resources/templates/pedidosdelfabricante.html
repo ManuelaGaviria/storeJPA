@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Pedidos del Fabricante</title>
+    <link th:href="@{/css/style.css}" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>Pedidos del Fabricante</h1>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Fecha pedido</th>
+                    <th>Cantidad</th>
+                    <th>Precio Total</th>
+                    <th>Estado</th>
+                </tr>
+            </thead>
+            <tbody>
+                <th:block th:each="e : ${pedidos}">
+                    <tr>
+                        <td th:text="${e.id}"></td>
+                        <td th:text="${e.fecha_pedido}"></td>
+                        <td th:text="${e.cantidad}"></td>
+                        <td th:text="${e.precio_total}"></td>
+                        <td th:text="${e.estado}"></td>
+                    </tr>
+                </th:block>
+            </tbody>
+        </table>
+        <br/><br/>
+        <form method="get" action="/productos/listar">
+            <button type="submit" class="btn btn-secondary">Volver</button>
+        </form>
+    </div>
+</body>
+</html>
